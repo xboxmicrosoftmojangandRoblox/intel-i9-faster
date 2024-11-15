@@ -1,0 +1,25 @@
+import numpy as np
+
+def slow_calculation(arr):
+  result = 0
+  for i in range(len(arr)):
+    result += arr[i] * arr[i]
+  return result
+
+def fast_calculation(arr):
+  return np.sum(arr * arr)  # Vectorized operation
+
+# Generate some large data
+data = np.random.rand(1000000)
+
+# Slow calculation
+start_time = time.time()
+slow_result = slow_calculation(data)
+elapsed_time = time.time() - start_time
+print("Slow calculation time:", elapsed_time)
+
+# Fast calculation
+start_time = time.time()
+fast_result = fast_calculation(data)
+elapsed_time = time.time() - start_time
+print("Fast calculation time:", elapsed_time)
